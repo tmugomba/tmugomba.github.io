@@ -21,10 +21,6 @@
   <a href="https://www.linkedin.com/in/tendekai-mugomba" target="_blank" rel="noopener" aria-label="LinkedIn">IN</a>
 </div>
 
-<!-- Floating email rail -->
-<div class="email-rail">
-  <a href="mailto:mugomba.tendekai@gmail.com">mugomba.tendekai@gmail.com</a>
-</div>
 
 <header class="site-header" id="siteHeader">
   <a href="#top" class="brand">TM<span>.</span></a>
@@ -113,34 +109,26 @@
 
 <section class="section blueprint-section" id="pending">
   <div class="wrap">
-    <div class="section-head blueprint-head">
-      <div>
-        <div class="eyebrow">IN PROGRESS</div>
+    <div class="section-head">
+      <div class="eyebrow">IN PROGRESS</div>
+      <div class="blueprint-title-row">
         <h2>On the drafting table</h2>
-        <p>Projects currently in development — case studies, models, and tools not yet shipped.</p>
+        <!-- Animated drafting compass: whole icon swings on a CSS animation
+             with a static dashed arc suggesting a traced measurement,
+             rigidly attached so it can't drift apart mid-swing. -->
+        <div class="compass-anim">
+          <svg viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <path d="M 34 92 A 46 46 0 0 1 86 92" fill="none" stroke="#f5a623" stroke-width="1.5"
+                  stroke-dasharray="5 4" stroke-linecap="round" opacity="0.4" />
+            <circle cx="60" cy="26" r="4.5" fill="#f5a623" />
+            <line x1="60" y1="26" x2="34" y2="92" stroke="#aab5c2" stroke-width="2.5" stroke-linecap="round" />
+            <circle cx="34" cy="92" r="3" fill="#aab5c2" />
+            <line x1="60" y1="26" x2="86" y2="92" stroke="#f5a623" stroke-width="2.5" stroke-linecap="round" />
+            <rect x="82.5" y="88.5" width="7" height="7" fill="#f5a623" transform="rotate(45 86 92)" />
+          </svg>
+        </div>
       </div>
-      <!-- Animated drafting compass: sweeps back and forth like it's actively
-           measuring/drawing, with a dashed arc beneath that traces itself in
-           a loop. Pure SVG/SMIL, no JS needed. -->
-      <!-- Animated drafting compass: whole icon swings on a CSS animation
-           (more reliable across browsers than the SMIL version) with a
-           static dashed arc beneath suggesting a traced measurement. -->
-      <div class="compass-anim">
-        <svg viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-          <!-- traced arc — now rigidly part of the same rotating unit as the
-               legs, so it can't drift apart from them mid-swing -->
-          <path d="M 34 92 A 46 46 0 0 1 86 92" fill="none" stroke="#f5a623" stroke-width="1.5"
-                stroke-dasharray="5 4" stroke-linecap="round" opacity="0.4" />
-          <!-- hinge -->
-          <circle cx="60" cy="26" r="4.5" fill="#f5a623" />
-          <!-- pivot leg: plain point foot -->
-          <line x1="60" y1="26" x2="34" y2="92" stroke="#aab5c2" stroke-width="2.5" stroke-linecap="round" />
-          <circle cx="34" cy="92" r="3" fill="#aab5c2" />
-          <!-- pencil leg: diamond nib foot, distinct from the pivot -->
-          <line x1="60" y1="26" x2="86" y2="92" stroke="#f5a623" stroke-width="2.5" stroke-linecap="round" />
-          <rect x="82.5" y="88.5" width="7" height="7" fill="#f5a623" transform="rotate(45 86 92)" />
-        </svg>
-      </div>
+      <p>Projects currently in development — case studies, models, and tools not yet shipped.</p>
     </div>
     <div class="blueprint-grid" id="blueprintGrid">
       <!-- Rendered by js/script.js from data/projects.json -->
@@ -157,7 +145,7 @@
       <div class="footer-links">
         <a href="https://github.com/tmugomba" target="_blank" rel="noopener">GitHub</a>
         <a href="https://www.linkedin.com/in/tendekai-mugomba" target="_blank" rel="noopener">LinkedIn</a>
-        <a href="mailto:mugomba.tendekai@gmail.com">Email</a>
+        <span class="mono">mugomba.tendekai@gmail.com</span>
       </div>
     </div>
     <div class="footer-note">&copy; <span id="year"></span> Tendekai Mugomba. Built with data, not templates.</div>
