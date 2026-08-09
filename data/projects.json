@@ -1,0 +1,104 @@
+{
+  "_readme": "Fill in every 'TODO' with the real live-demo and GitHub URLs. status can be 'live' or 'pending'. image_query is a placeholder note for what photo should eventually go here (source from Unsplash/Pexels).",
+
+  "live": [
+    {
+      "id": "solar-pv-dashboard",
+      "title": "Solar PV Performance Dashboard",
+      "category": "Solar",
+      "description": "Streamlit dashboard analyzing solar production across sites — daily/monthly trends, expected vs actual output, cross-site comparison.",
+      "tags": ["Python", "Pandas", "Streamlit", "Plotly"],
+      "demo_url": "https://solar-pv-performance-dashboard.streamlit.app/",
+      "github_url": "https://github.com/tmugomba/solar-pv-performance-dashboard",
+      "image_query": "aerial solar panel farm rooftop"
+    },
+    {
+      "id": "load-forecasting",
+      "title": "Load Forecasting ML Project",
+      "category": "Tools",
+      "description": "XGBoost model forecasting electricity demand (MAE 201 MWh, R\u00b2 0.969), with SARIMAX comparison and full methodology writeup.",
+      "tags": ["Python", "XGBoost", "Streamlit", "Time Series"],
+      "demo_url": "https://load-forecasting-ml.streamlit.app/",
+      "github_url": "https://github.com/tmugomba/load-forecasting-ml",
+      "image_query": "electrical grid transmission lines dusk"
+    },
+    {
+      "id": "lcoe-tool",
+      "title": "LCOE Optimization Tool",
+      "category": "Tools",
+      "description": "Canadian-focused levelized cost of energy calculator covering all 10 provinces, validated against IESO/AESO benchmarks.",
+      "tags": ["Python", "Streamlit", "Financial Modeling"],
+      "demo_url": "https://lcoe-optimization-tool.streamlit.app/",
+      "github_url": "https://github.com/tmugomba/lcoe-optimization-tool",
+      "image_query": "wind turbines solar panels field canada"
+    },
+    {
+      "id": "wind-turbine-calculator",
+      "title": "Wind Turbine Power Calculator",
+      "category": "Wind",
+      "description": "Interactive single-file tool with animated turbine, power curve, Canada wind map, and onshore/offshore comparison.",
+      "tags": ["JavaScript", "SVG", "Chart.js"],
+      "demo_url": "https://tmugomba.github.io/wind-turbine-calculator/",
+      "github_url": "https://github.com/tmugomba/wind-turbine-calculator",
+      "image_query": "wind turbine close up blades sky"
+    },
+    {
+      "id": "solar-yield-dashboard",
+      "title": "Solar Yield Dashboard",
+      "category": "Solar",
+      "description": "Open-Meteo powered yield estimator with production calendar, payback calculator, and province comparison.",
+      "tags": ["JavaScript", "Open-Meteo API", "Excel Export"],
+      "demo_url": "https://tmugomba.github.io/solar-yield-dashboard/",
+      "github_url": "https://github.com/tmugomba/solar-yield-dashboard",
+      "image_query": "solar panels sunrise golden hour"
+    },
+    {
+      "id": "renewable-grid-explorer",
+      "title": "Canada Renewable Grid Explorer",
+      "category": "Tools",
+      "description": "Multi-tab explorer covering wind, solar, hydro, geothermal, tidal, biomass, fossil fuels, and nuclear across the Canadian grid.",
+      "tags": ["JavaScript", "SVG", "Data Viz"],
+      "demo_url": "https://tmugomba.github.io/renewable-grid-explorer/",
+      "github_url": "https://github.com/tmugomba/renewable-grid-explorer",
+      "image_query": "canada hydro dam aerial"
+    }
+  ],
+
+  "pending": [
+    {
+      "id": "wind-weibull-nova-east",
+      "title": "Nova East Wind: Production Case Study",
+      "category": "Wind",
+      "description": "Weibull distribution + power curve modeling applied to the proposed 300\u2013400 MW Goldboro floating offshore project.",
+      "eta": "Q4 2026"
+    },
+    {
+      "id": "wind-weibull-mersey",
+      "title": "Mersey River Wind: Production Case Study",
+      "category": "Wind",
+      "description": "Production estimate modeling for the 148.5 MW Roswall/Renewall onshore project in Liverpool, NS.",
+      "eta": "Q4 2026"
+    },
+    {
+      "id": "hydro-run-of-river",
+      "title": "Run-of-River Streamflow Prediction",
+      "category": "Hydro",
+      "description": "USGS streamflow data applied to run-of-river hydro production forecasting.",
+      "eta": "TBD"
+    },
+    {
+      "id": "hydro-complementarity",
+      "title": "Solar / Wind / Hydro Complementarity Study",
+      "category": "Hydro",
+      "description": "Analyzing how the three resources offset each other's seasonal variability across the NS grid.",
+      "eta": "TBD"
+    },
+    {
+      "id": "retscreen-capstone",
+      "title": "RETScreen-Inspired Resource Assessment Tool",
+      "category": "Tools",
+      "description": "Capstone tool covering solar, wind, and hydro resource assessment, built on the NASA POWER API.",
+      "eta": "TBD"
+    }
+  ]
+}

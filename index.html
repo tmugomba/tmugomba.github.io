@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Tendekai Mugomba — Renewable Energy &amp; ML Portfolio</title>
+<meta name="description" content="Electrical engineering student building renewable energy + machine learning projects: solar, wind, hydro, and research." />
+
+<!-- Fonts -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+
+<!-- Floating GitHub / LinkedIn rail -->
+<div class="social-rail">
+  <a href="https://github.com/tmugomba" target="_blank" rel="noopener" aria-label="GitHub">GH</a>
+  <a href="https://www.linkedin.com/in/tendekai-mugomba" target="_blank" rel="noopener" aria-label="LinkedIn">IN</a>
+</div>
+
+<!-- Floating email rail -->
+<div class="email-rail">
+  <a href="mailto:mugomba.tendekai@gmail.com">mugomba.tendekai@gmail.com</a>
+</div>
+
+<header class="site-header" id="siteHeader">
+  <a href="#top" class="brand">TM<span>.</span></a>
+  <nav class="main-nav">
+    <a href="#about">About</a>
+    <a href="#projects">Projects</a>
+    <a href="#pending">In Progress</a>
+    <a href="#contact">Contact</a>
+  </nav>
+</header>
+
+<section class="hero" id="top">
+  <div class="hero-bg" role="img" aria-label="Wind turbines at golden hour"></div>
+  <div class="hero-content">
+    <div class="hero-role mono">ELECTRICAL ENGINEERING STUDENT</div>
+    <h1><!-- REPLACE WITH YOUR HEADLINE -->Lorem ipsum, dolor sit amet.</h1>
+    <!-- REPLACE WITH YOUR INTRO — filler below just shows the space/length -->
+    <p class="hero-sub">
+      Lorem ipsum dolor sit amet consectetur adipiscing elit sed do eiusmod
+      tempor incididunt ut labore et dolore magna aliqua ut enim ad minim
+      veniam quis nostrud exercitation.
+    </p>
+    <div class="hero-cta">
+      <a href="#projects" class="btn">View Projects</a>
+      <a href="#" class="mono" id="resumeBtn" style="font-size:0.85rem; align-self:center; border-bottom:1px solid var(--hairline-strong);">Resume ↓</a>
+      <!-- TODO: point resumeBtn href at real resume file/link -->
+    </div>
+  </div>
+  <div class="scroll-indicator"><span class="line"></span>SCROLL</div>
+</section>
+
+<section class="section" id="about">
+  <div class="wrap about-grid">
+    <div>
+      <div class="eyebrow">ABOUT</div>
+      <h2><!-- REPLACE WITH YOUR ABOUT HEADING -->Lorem ipsum dolor sit amet</h2>
+      <div class="about-bio">
+        <!-- REPLACE THESE TWO PARAGRAPHS — filler below just shows the space/length -->
+        <p>
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod
+          tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim
+          veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip.
+        </p>
+        <p>
+          Duis aute irure dolor in reprehenderit in voluptate velit esse cillum
+          dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+          proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+        </p>
+      </div>
+      <div class="skill-cloud">
+        <span class="skill-chip">Python</span>
+        <span class="skill-chip">Pandas / XGBoost</span>
+        <span class="skill-chip">Streamlit</span>
+        <span class="skill-chip">M&amp;V / Regression</span>
+        <span class="skill-chip">LCOE Modeling</span>
+        <span class="skill-chip">RETScreen / PVWatts</span>
+        <span class="skill-chip">JavaScript / Chart.js</span>
+      </div>
+    </div>
+    <div class="about-figure">
+      PLACEHOLDER — portrait skipped by request.<br>Consider a data-viz graphic
+      or workspace/field photo instead.
+    </div>
+  </div>
+</section>
+
+<section class="section" id="projects">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">PROJECTS</div>
+      <h2>Solar, wind, hydro, and the tools that tie them together</h2>
+    </div>
+    <div class="filter-row" id="filterRow">
+      <button class="filter-btn active" data-filter="All">All</button>
+      <button class="filter-btn" data-filter="Solar">Solar</button>
+      <button class="filter-btn" data-filter="Wind">Wind</button>
+      <button class="filter-btn" data-filter="Hydro">Hydro</button>
+      <button class="filter-btn" data-filter="Research">Research</button>
+      <button class="filter-btn" data-filter="Tools">Tools</button>
+    </div>
+    <div class="project-grid" id="projectGrid">
+      <!-- Rendered by js/script.js from data/projects.json -->
+    </div>
+  </div>
+</section>
+
+<section class="section blueprint-section" id="pending">
+  <div class="wrap">
+    <div class="section-head blueprint-head">
+      <div>
+        <div class="eyebrow">IN PROGRESS</div>
+        <h2>On the drafting table</h2>
+        <p>Projects currently in development — case studies, models, and tools not yet shipped.</p>
+      </div>
+      <!-- Animated drafting compass: sweeps back and forth like it's actively
+           measuring/drawing, with a dashed arc beneath that traces itself in
+           a loop. Pure SVG/SMIL, no JS needed. -->
+      <!-- Animated drafting compass: whole icon swings on a CSS animation
+           (more reliable across browsers than the SMIL version) with a
+           static dashed arc beneath suggesting a traced measurement. -->
+      <div class="compass-anim">
+        <svg viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <!-- traced arc — now rigidly part of the same rotating unit as the
+               legs, so it can't drift apart from them mid-swing -->
+          <path d="M 34 92 A 46 46 0 0 1 86 92" fill="none" stroke="#f5a623" stroke-width="1.5"
+                stroke-dasharray="5 4" stroke-linecap="round" opacity="0.4" />
+          <!-- hinge -->
+          <circle cx="60" cy="26" r="4.5" fill="#f5a623" />
+          <!-- pivot leg: plain point foot -->
+          <line x1="60" y1="26" x2="34" y2="92" stroke="#aab5c2" stroke-width="2.5" stroke-linecap="round" />
+          <circle cx="34" cy="92" r="3" fill="#aab5c2" />
+          <!-- pencil leg: diamond nib foot, distinct from the pivot -->
+          <line x1="60" y1="26" x2="86" y2="92" stroke="#f5a623" stroke-width="2.5" stroke-linecap="round" />
+          <rect x="82.5" y="88.5" width="7" height="7" fill="#f5a623" transform="rotate(45 86 92)" />
+        </svg>
+      </div>
+    </div>
+    <div class="blueprint-grid" id="blueprintGrid">
+      <!-- Rendered by js/script.js from data/projects.json -->
+    </div>
+  </div>
+</section>
+
+<footer id="contact">
+  <div class="wrap">
+    <div class="footer-grid">
+      <div>
+        <div class="brand" style="margin-bottom:0.6rem;">TM<span>.</span></div>
+      </div>
+      <div class="footer-links">
+        <a href="https://github.com/tmugomba" target="_blank" rel="noopener">GitHub</a>
+        <a href="https://www.linkedin.com/in/tendekai-mugomba" target="_blank" rel="noopener">LinkedIn</a>
+        <a href="mailto:mugomba.tendekai@gmail.com">Email</a>
+      </div>
+    </div>
+    <div class="footer-note">&copy; <span id="year"></span> Tendekai Mugomba. Built with data, not templates.</div>
+  </div>
+</footer>
+
+<script src="js/script.js"></script>
+</body>
+</html>
