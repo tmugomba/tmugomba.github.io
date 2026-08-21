@@ -181,3 +181,77 @@ function renderBlueprints(pending) {
     `;
   }).join('');
 }
+
+/* ---------- Resume request dialog ---------- */
+(function resumeDialog() {
+  const dialog = document.getElementById('resumeDialog');
+  const openBtn = document.getElementById('resumeBtn');
+  const closeBtn = document.getElementById('dialogClose');
+  const closeSuccessBtn = document.getElementById('dialogCloseSuccess');
+  const form = document.getElementById('resumeForm');
+  const successPanel = document.getElementById('resumeSuccess');
+  if (!dialog || !openBtn || !form) return;
+
+  openBtn.addEventListener('click', () => dialog.showModal());
+  closeBtn.addEventListener('click', () => dialog.close());
+  if (closeSuccessBtn) closeSuccessBtn.addEventListener('click', () => dialog.close());
+
+  // Click on the backdrop (outside the form) also closes it
+  dialog.addEventListener('click', (e) => {
+    if (e.target === dialog) dialog.close();
+  });
+
+  form.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    const submitBtn = form.querySelector('button[type="submit"]');
+    submitBtn.disabled = true;
+    submitBtn.textContent = 'Sending...';
+
+    try {
+      const response = await fetch(form.action, {
+        method: 'POST',
+        body: new FormData(form),
+        headers: { Accept: 'application/json' },
+      });
+      if (response.ok) {
+        form.hidden = true;
+        successPanel.hidden = false;
+      } else {
+        submitBtn.disabled = false;
+        submitBtn.textContent = 'Send Request';
+        alert('Something went wrong — please try again, or email mugomba.tendekai@gmail.com directly.');
+      }
+    } catch (err) {
+      submitBtn.disabled = false;
+      submitBtn.textContent = 'Send Request';
+      alert('Something went wrong — please try again, or email mugomba.tendekai@gmail.com directly.');
+    }
+  });
+})();
+
+/* ---------- About section photo slideshow ---------- */
+(function aboutSlideshow() {
+  const container = document.getElementById('aboutSlideshow');
+  if (!container) return;
+  const slides = container.querySelectorAll('.slide');
+  if (slides.length < 2) return;
+
+  let current = 0;
+  const intervalMs = 4000; // advance to next photo every 4 seconds
+
+  function next() {
+    slides[current].classList.remove('active');
+    current = (current + 1) % slides.length;
+    slides[current].classList.add('active');
+  }
+
+  const timer = setInterval(next, intervalMs);
+
+  // Pause when the tab isn't visible, resume when it is — no point
+  // burning cycles animating something nobody's looking at.
+  document.addEventListener('visibilitychange', () => {
+    if (document.hidden) {
+      clearInterval(timer);
+    }
+  });
+})();
