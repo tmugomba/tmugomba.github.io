@@ -6,6 +6,8 @@
 <title>Tendekai Mugomba — Renewable Energy &amp; ML Portfolio</title>
 <meta name="description" content="Electrical engineering student building renewable energy + machine learning projects: solar, wind, hydro, and research." />
 <link rel="icon" type="image/svg+xml" href="favicon.svg" />
+<link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png" />
+<link rel="apple-touch-icon" sizes="180x180" href="favicon-180.png" />
 
 <!-- Fonts -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -45,10 +47,7 @@
     </p>
     <div class="hero-cta">
       <a href="#projects" class="btn">View Projects</a>
-      <a href="mailto:mugomba.tendekai@gmail.com?subject=Resume%20Request&body=Hi%20Tendekai%2C%0A%0AI%27d%20like%20to%20request%20a%20copy%20of%20your%20resume.%0A%0AThanks!" class="mono" id="resumeBtn" style="font-size:0.85rem; align-self:center; border-bottom:1px solid var(--hairline-strong);">Request Resume ↗</a>
-      <!-- Opens the visitor's email client pre-filled with a request, rather
-           than linking a public PDF directly — keeps full contact/work
-           history off a scrapeable public URL, and you see who's asking. -->
+      <button type="button" class="mono resume-trigger" id="resumeBtn" style="font-size:0.85rem; align-self:center; border-bottom:1px solid var(--hairline-strong); background:none; border-top:0; border-left:0; border-right:0; color:var(--ink-light); cursor:pointer; padding:0;">Request Resume ↗</button>
     </div>
   </div>
   <div class="scroll-indicator"><span class="line"></span>SCROLL</div>
@@ -58,18 +57,25 @@
   <div class="wrap about-grid">
     <div>
       <div class="eyebrow">ABOUT</div>
-      <h2><!-- REPLACE WITH YOUR ABOUT HEADING -->Lorem ipsum dolor sit amet</h2>
+      <h2>Renewable energy is the obvious decision</h2>
       <div class="about-bio">
-        <!-- REPLACE THESE TWO PARAGRAPHS — filler below just shows the space/length -->
         <p>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod
-          tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim
-          veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip.
+          Renewable energy is becoming less of an option and more of an obvious
+          decision. The world's growth demands more electricity, and traditional
+          resources are proving more detrimental than beneficial in the long run.
         </p>
         <p>
-          Duis aute irure dolor in reprehenderit in voluptate velit esse cillum
-          dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-          proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+          Harnessing our abundant natural resources is no longer a question of
+          <em>if</em>, but <em>how efficiently</em> — and recent advancements are
+          closing the gaps that once held renewables back. Better forecasting
+          reduces uncertainty, smarter grid integration handles variability, and
+          storage systems like BESS turn intermittent generation into reliable,
+          dispatchable power.
+        </p>
+        <p>
+          With reliable data and insights, we can measure what's performing,
+          forecast what's coming, and model what it costs to get there — that's
+          the work this site collects.
         </p>
       </div>
       <div class="skill-cloud">
@@ -82,9 +88,18 @@
         <span class="skill-chip">JavaScript / Chart.js</span>
       </div>
     </div>
-    <div class="about-figure">
-      PLACEHOLDER — portrait skipped by request.<br>Consider a data-viz graphic
-      or workspace/field photo instead.
+    <div class="about-figure about-slideshow" id="aboutSlideshow">
+      <img class="slide active" src="https://images.unsplash.com/photo-1508791290064-c27cc1ef7a9a?w=900&auto=format&fit=crop&q=75" alt="Wind turbines" />
+      <img class="slide" src="https://images.unsplash.com/photo-1674606071893-2a9023075f70?w=900&auto=format&fit=crop&q=75" alt="Solar panel farm" />
+      <img class="slide" src="https://images.unsplash.com/photo-1580960062319-b904d81f8b59?w=900&auto=format&fit=crop&q=75" alt="Hydroelectric dam" />
+      <img class="slide" src="https://images.unsplash.com/photo-1725161779206-1dbd23169e42?w=900&auto=format&fit=crop&q=75" alt="Transmission lines at dusk" />
+      <img class="slide" src="https://images.pexels.com/photos/32268550/pexels-photo-32268550.jpeg?auto=compress&cs=tinysrgb&w=900" alt="Wind turbine in green landscape" />
+      <img class="slide" src="https://images.pexels.com/photos/38928940/pexels-photo-38928940.jpeg?auto=compress&cs=tinysrgb&w=900" alt="Renewable energy" />
+      <img class="slide" src="https://images.pexels.com/photos/38126748/pexels-photo-38126748.jpeg?auto=compress&cs=tinysrgb&w=900" alt="Renewable energy" />
+      <img class="slide" src="https://images.pexels.com/photos/6876543/pexels-photo-6876543.jpeg?auto=compress&cs=tinysrgb&w=900" alt="Renewable energy" />
+      <img class="slide" src="https://images.pexels.com/photos/6076272/pexels-photo-6076272.jpeg?auto=compress&cs=tinysrgb&w=900" alt="Renewable energy" />
+      <img class="slide" src="https://images.pexels.com/photos/33846159/pexels-photo-33846159.jpeg?auto=compress&cs=tinysrgb&w=900" alt="Renewable energy" />
+      <div class="slideshow-gradient"></div>
     </div>
   </div>
 </section>
@@ -153,6 +168,26 @@
     <div class="footer-note">&copy; <span id="year"></span> Tendekai Mugomba. Built with data, not templates.</div>
   </div>
 </footer>
+
+<!-- Resume request modal — asks for the visitor's email, submits to a
+     Formspree endpoint (no backend needed), and shows a confirmation
+     instead of exposing a public resume PDF. -->
+<dialog id="resumeDialog" class="resume-dialog">
+  <form id="resumeForm" action="https://formspree.io/f/mrpzjrje" method="POST">
+    <button type="button" class="dialog-close" id="dialogClose" aria-label="Close">&times;</button>
+    <h3>Request my resume</h3>
+    <p class="dialog-sub">Enter your email and I'll follow up directly with a copy.</p>
+    <input type="hidden" name="_subject" value="Resume request from portfolio site" />
+    <label for="requesterEmail" class="visually-hidden">Your email</label>
+    <input type="email" id="requesterEmail" name="email" placeholder="you@company.com" required />
+    <button type="submit" class="btn" style="width:100%; justify-content:center; margin-top:1rem;">Send Request</button>
+  </form>
+  <div id="resumeSuccess" class="resume-success" hidden>
+    <h3>Request sent</h3>
+    <p class="dialog-sub">Thanks — you'll hear from me directly soon.</p>
+    <button type="button" class="btn ghost" id="dialogCloseSuccess" style="width:100%; justify-content:center;">Close</button>
+  </div>
+</dialog>
 
 <script src="js/script.js"></script>
 </body>
