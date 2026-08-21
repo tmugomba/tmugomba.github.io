@@ -27,13 +27,8 @@ document.getElementById('year').textContent = new Date().getFullYear();
   }, { passive: true });
 })();
 
-/* ---------- Resume button placeholder guard ---------- */
-document.getElementById('resumeBtn').addEventListener('click', (e) => {
-  if (e.currentTarget.getAttribute('href') === '#') {
-    e.preventDefault();
-    alert('TODO: point this button at your resume file or link.');
-  }
-});
+/* Resume button now links directly to a pre-filled mailto request —
+   no placeholder guard needed anymore. */
 
 /* ---------- Load + render projects ---------- */
 let allProjects = [];
