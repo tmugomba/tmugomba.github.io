@@ -118,7 +118,7 @@
       "id": "bess-grid-optimizer",
       "title": "Grid Optimizer",
       "category": "Storage",
-      "description": "LP dispatch model (PuLP/scipy) revenue-stacking a battery across arbitrage and ancillary services \u2014 benchmarked against real IESO/AESO wholesale prices, plus a case study dispatching against NS Power's TOU rates in lieu of a spot market.",
+      "description": "An optimization model that decides when to charge and discharge a battery to earn the most value, tested against real Ontario/Alberta wholesale prices, plus a case study using Nova Scotia's time-of-use rates since NS doesn't have a spot market to trade against.",
       "eta": "TBD"
     },
     {
