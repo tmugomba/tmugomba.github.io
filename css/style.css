@@ -217,7 +217,7 @@ nav.main-nav a:hover { color: var(--amber); }
 
 /* ---------- About ---------- */
 .about-grid { display: grid; grid-template-columns: 1fr; gap: 3rem; }
-@media (min-width: 900px) { .about-grid { grid-template-columns: 1.1fr 1fr; } }
+@media (min-width: 900px) { .about-grid { grid-template-columns: 1fr 1.3fr; } }
 
 .about-bio { font-size: 1.08rem; color: var(--ink-light); }
 .about-bio strong { color: var(--ink-white); }
@@ -233,7 +233,7 @@ nav.main-nav a:hover { color: var(--amber); }
   border: 1px solid var(--hairline-strong);
   background: var(--graphite);
   border-radius: 4px;
-  min-height: 560px; /* bigger frame for the photos */
+  min-height: 600px; /* bigger frame for the photos */
   position: relative; /* REQUIRED: without this, the absolutely-positioned
                           .slide images inside have no positioned ancestor
                           to be contained by, so they escape the box and
@@ -242,7 +242,7 @@ nav.main-nav a:hover { color: var(--amber); }
 }
 
 @media (min-width: 1200px) {
-  .about-figure { min-height: 660px; }
+  .about-figure { min-height: 720px; }
 }
 
 .about-slideshow .slide {
@@ -264,6 +264,31 @@ nav.main-nav a:hover { color: var(--amber); }
   background: linear-gradient(160deg, rgba(245,166,35,0.1), rgba(53,194,193,0.08));
   pointer-events: none;
 }
+
+/* Prev/next slideshow arrows — circular, semi-transparent buttons that
+   sit on top of the photo, amber on hover to match the site's accent */
+.slide-nav {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 3;
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  border: 1px solid var(--hairline-strong);
+  background: rgba(6, 12, 20, 0.55);
+  color: var(--ink-white);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  backdrop-filter: blur(2px);
+  transition: background 0.2s ease, border-color 0.2s ease, color 0.2s ease;
+}
+.slide-nav svg { width: 20px; height: 20px; }
+.slide-nav:hover { background: var(--amber); border-color: var(--amber); color: var(--navy-deep); }
+.slide-nav-prev { left: 1rem; }
+.slide-nav-next { right: 1rem; }
 
 /* ---------- Projects ---------- */
 .filter-row { display: flex; flex-wrap: wrap; gap: 0.7rem; margin-bottom: 2.5rem; }
@@ -495,4 +520,3 @@ footer { border-top: 1px solid var(--hairline-strong); padding: 4rem 0 3rem; }
 .dialog-close:hover { color: var(--amber); }
 
 .resume-dialog form, .resume-success { position: relative; }
-
