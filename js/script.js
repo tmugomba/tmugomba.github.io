@@ -57,6 +57,7 @@ const CATEGORY_PHOTOS = {
   Wind: 'https://images.unsplash.com/photo-1508791290064-c27cc1ef7a9a?w=800&auto=format&fit=crop&q=75',
   Hydro: 'https://images.unsplash.com/photo-1580960062319-b904d81f8b59?w=800&auto=format&fit=crop&q=75',
   Tools: 'https://images.unsplash.com/photo-1725161779206-1dbd23169e42?w=800&auto=format&fit=crop&q=75',
+  Storage: 'images/storage-bess.webp',
 };
 
 function categoryIcon(category) {
@@ -234,24 +235,48 @@ function renderBlueprints(pending) {
   const container = document.getElementById('aboutSlideshow');
   if (!container) return;
   const slides = container.querySelectorAll('.slide');
+  const prevBtn = document.getElementById('slidePrev');
+  const nextBtn = document.getElementById('slideNext');
   if (slides.length < 2) return;
 
   let current = 0;
   const intervalMs = 4000; // advance to next photo every 4 seconds
+  let timer = null;
 
-  function next() {
+  // Moves to a specific slide index, wrapping around in either direction
+  function goTo(index) {
     slides[current].classList.remove('active');
-    current = (current + 1) % slides.length;
+    current = (index + slides.length) % slides.length;
     slides[current].classList.add('active');
   }
 
-  const timer = setInterval(next, intervalMs);
+  function next() { goTo(current + 1); }
+  function prev() { goTo(current - 1); }
+
+  function startTimer() {
+    clearInterval(timer);
+    timer = setInterval(next, intervalMs);
+  }
+
+  // Manual navigation restarts the auto-advance countdown, so clicking an
+  // arrow doesn't get immediately overridden by the timer a moment later
+  function manualNav(action) {
+    action();
+    startTimer();
+  }
+
+  if (nextBtn) nextBtn.addEventListener('click', () => manualNav(next));
+  if (prevBtn) prevBtn.addEventListener('click', () => manualNav(prev));
+
+  startTimer();
 
   // Pause when the tab isn't visible, resume when it is — no point
   // burning cycles animating something nobody's looking at.
   document.addEventListener('visibilitychange', () => {
     if (document.hidden) {
       clearInterval(timer);
+    } else {
+      startTimer();
     }
   });
 })();
