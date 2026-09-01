@@ -108,6 +108,27 @@
       "eta": "TBD"
     },
     {
+      "id": "bess-tech-comparator",
+      "title": "BESS Technology Comparator",
+      "category": "Storage",
+      "description": "Interactive selector comparing every major grid-scale battery type \u2014 Li-ion (NMC/LFP/NCA), flow (vanadium, zinc-bromine), sodium-ion, lead-acid, legacy nickel-based, and emerging solid-state \u2014 on cost/kWh, cycle life, round-trip efficiency, and safety.",
+      "eta": "TBD"
+    },
+    {
+      "id": "bess-grid-optimizer",
+      "title": "Grid Optimizer",
+      "category": "Storage",
+      "description": "LP dispatch model (PuLP/scipy) revenue-stacking a battery across arbitrage and ancillary services \u2014 benchmarked against real IESO/AESO wholesale prices, plus a case study dispatching against NS Power's TOU rates in lieu of a spot market.",
+      "eta": "TBD"
+    },
+    {
+      "id": "bess-hybrid-sizing",
+      "title": "Hybrid Solar/Wind + BESS Sizing Tool",
+      "category": "Storage",
+      "description": "Co-optimizes battery capacity against a solar or wind generation profile (e.g. Mersey River Wind) to minimize curtailment and maximize firm, dispatchable capacity.",
+      "eta": "TBD"
+    },
+    {
       "id": "retscreen-capstone",
       "title": "RETScreen-Inspired Resource Assessment Tool",
       "category": "Tools",
