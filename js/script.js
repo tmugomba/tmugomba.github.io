@@ -240,7 +240,7 @@ function renderBlueprints(pending) {
   if (slides.length < 2) return;
 
   let current = 0;
-  const intervalMs = 4000; // advance to next photo every 4 seconds
+  const intervalMs = 6000; // advance to next photo every 6 seconds
   let timer = null;
 
   // Moves to a specific slide index, wrapping around in either direction
