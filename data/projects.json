@@ -80,6 +80,20 @@
       "eta": "Q4 2026"
     },
     {
+      "id": "wind-benjamins-mill",
+      "title": "Benjamins Mill Wind Project: Case Study",
+      "category": "Wind",
+      "description": "Production modeling for the proposed 150 MW Natural Forces / Wskijnu'k Mtmo'taqnuow Agency project in Hants County \u2014 poised to be Nova Scotia's largest wind farm.",
+      "eta": "TBD"
+    },
+    {
+      "id": "wind-clydesdale-ridge",
+      "title": "Clydesdale Ridge Wind Project: Case Study",
+      "category": "Wind",
+      "description": "Weibull + power curve analysis for the proposed Clydesdale Ridge Wind Project in Colchester County, NS.",
+      "eta": "TBD"
+    },
+    {
       "id": "hydro-run-of-river",
       "title": "Run-of-River Streamflow Prediction",
       "category": "Hydro",
