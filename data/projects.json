@@ -61,6 +61,16 @@
       "demo_url": "https://tmugomba.github.io/renewable-grid-explorer/",
       "github_url": "https://github.com/tmugomba/renewable-grid-explorer",
       "image_query": "canada hydro dam aerial"
+    },
+    {
+      "id": "hydro-runoff-predictor",
+      "title": "Hydro Run-of-River Predictor",
+      "category": "Hydro",
+      "description": "Streamflow forecasting at a real Water Survey of Canada gauge station, calibrated against the 42.5 MW Mersey Hydro System \u2014 XGBoost vs. a naive persistence baseline, with results reported honestly (baseline won overall).",
+      "tags": ["Python", "XGBoost", "Streamlit", "Time Series"],
+      "demo_url": "https://hydro-runoff-predictor.streamlit.app/",
+      "github_url": "https://github.com/tmugomba/hydro-runoff-predictor",
+      "image_query": "canada hydro dam aerial"
     }
   ],
 
@@ -91,13 +101,6 @@
       "title": "Clydesdale Ridge Wind Project: Case Study",
       "category": "Wind",
       "description": "Weibull + power curve analysis for the proposed Clydesdale Ridge Wind Project in Colchester County, NS.",
-      "eta": "TBD"
-    },
-    {
-      "id": "hydro-run-of-river",
-      "title": "Run-of-River Streamflow Prediction",
-      "category": "Hydro",
-      "description": "USGS streamflow data applied to run-of-river hydro production forecasting.",
       "eta": "TBD"
     },
     {
