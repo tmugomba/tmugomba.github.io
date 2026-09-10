@@ -71,6 +71,16 @@
       "demo_url": "https://hydro-runoff-predictor.streamlit.app/",
       "github_url": "https://github.com/tmugomba/hydro-runoff-predictor",
       "image_query": "canada hydro dam aerial"
+    },
+    {
+      "id": "tidal-resource-assessment",
+      "title": "Tidal Resource Assessment",
+      "category": "Tidal",
+      "description": "Tidal energy resource assessment for the Bay of Fundy / Minas Passage, using real water level and current velocity data \u2014 harmonic analysis, flow speed modeling, and turbine siting insights.",
+      "tags": ["JavaScript", "SVG", "Tidal Data"],
+      "demo_url": "https://tmugomba.github.io/tidal-resource-assessment/",
+      "github_url": "https://github.com/tmugomba/tidal-resource-assessment",
+      "image_query": "tidal turbine ocean deployment"
     }
   ],
 
