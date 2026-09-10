@@ -14,6 +14,15 @@
 
 document.getElementById('year').textContent = new Date().getFullYear();
 
+/* ---------- Analytics helper ---------- */
+// Wraps gtag() so nothing breaks if GA4 hasn't loaded (ad blockers,
+// offline testing, etc.) — every custom event call below goes through this.
+function trackEvent(name, params = {}) {
+  if (typeof gtag === 'function') {
+    gtag('event', name, params);
+  }
+}
+
 /* ---------- Disappearing/reappearing header ---------- */
 (function headerScroll() {
   const header = document.getElementById('siteHeader');
@@ -58,6 +67,7 @@ const CATEGORY_PHOTOS = {
   Hydro: 'https://images.unsplash.com/photo-1580960062319-b904d81f8b59?w=800&auto=format&fit=crop&q=75',
   Tools: 'https://images.unsplash.com/photo-1725161779206-1dbd23169e42?w=800&auto=format&fit=crop&q=75',
   Storage: 'images/storage-bess.webp',
+  Tidal: 'images/tidal-1.webp',
 };
 
 function categoryIcon(category) {
@@ -147,6 +157,17 @@ function renderProjects(filter) {
   }).join('');
 }
 
+// Tracks clicks on individual project card links (Live Demo / GitHub),
+// using event delegation on the grid so it keeps working after re-renders
+document.getElementById('projectGrid').addEventListener('click', (e) => {
+  const link = e.target.closest('a');
+  if (!link || link.classList.contains('disabled')) return;
+  const card = link.closest('.project-card');
+  const projectTitle = card ? card.querySelector('h3').textContent : 'unknown';
+  const linkType = link.textContent.includes('GitHub') ? 'github' : 'demo';
+  trackEvent('project_link_click', { project_title: projectTitle, link_type: linkType });
+});
+
 /* ---------- Filter buttons ---------- */
 document.getElementById('filterRow').addEventListener('click', (e) => {
   const btn = e.target.closest('.filter-btn');
@@ -154,6 +175,7 @@ document.getElementById('filterRow').addEventListener('click', (e) => {
   document.querySelectorAll('.filter-btn').forEach((b) => b.classList.remove('active'));
   btn.classList.add('active');
   renderProjects(btn.dataset.filter);
+  trackEvent('filter_projects', { filter_category: btn.dataset.filter });
 });
 
 /* ---------- Blueprint / pending cards ---------- */
@@ -193,7 +215,10 @@ function renderBlueprints(pending) {
   const successPanel = document.getElementById('resumeSuccess');
   if (!dialog || !openBtn || !form) return;
 
-  openBtn.addEventListener('click', () => dialog.showModal());
+  openBtn.addEventListener('click', () => {
+    dialog.showModal();
+    trackEvent('resume_request_opened');
+  });
   closeBtn.addEventListener('click', () => dialog.close());
   if (closeSuccessBtn) closeSuccessBtn.addEventListener('click', () => dialog.close());
 
@@ -217,6 +242,7 @@ function renderBlueprints(pending) {
       if (response.ok) {
         form.hidden = true;
         successPanel.hidden = false;
+        trackEvent('resume_request_submitted');
       } else {
         submitBtn.disabled = false;
         submitBtn.textContent = 'Send Request';
