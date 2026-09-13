@@ -41,6 +41,7 @@
   <a href="#top" class="brand">TM<span>.</span></a>
   <nav class="main-nav">
     <a href="#about">About</a>
+    <a href="#wire">Wire</a>
     <a href="#projects">Projects</a>
     <a href="#pending">In Progress</a>
     <a href="#contact">Contact</a>
@@ -124,6 +125,100 @@
         <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 5 L16 12 L9 19" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
       </button>
     </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     THE RENEWABLE WIRE — hero-style snapshot section
+     Sits right after About. Left column is a self-contained CSS/SVG
+     mockup of the actual site (browser chrome + masthead + mini map
+     + headline rows) so it stays lightweight and on-brand instead of
+     embedding a live iframe or a static screenshot. Right column is
+     a short description + links out to the live site and the repo.
+     ============================================================ -->
+<section class="section wire-section" id="wire">
+  <div class="wrap wire-grid">
+
+    <!-- Clicking anywhere on the mockup opens the live site -->
+    <a class="wire-visual" href="https://tmugomba.github.io/renewable-wire/" target="_blank" rel="noopener" aria-label="Open The Renewable Wire in a new tab">
+      <div class="wire-frame">
+
+        <!-- fake browser chrome bar, just for framing/context -->
+        <div class="wire-chrome">
+          <span class="wire-chrome-dot"></span>
+          <span class="wire-chrome-dot"></span>
+          <span class="wire-chrome-dot"></span>
+          <span class="wire-chrome-url mono">tmugomba.github.io/renewable-wire</span>
+        </div>
+
+        <div class="wire-inner">
+          <div class="wire-topline mono">
+            <span class="wire-live"><i class="pulse-dot"></i>LIVE FEED</span>
+            <span class="wire-editions">
+              <span class="on">GLOBAL</span><span>CANADA</span>
+            </span>
+          </div>
+
+          <div class="wire-masthead-block">
+            <h3 class="wire-masthead">The Renewable Wire</h3>
+            <p class="wire-sub mono">Wind · Solar · Hydro · Storage · Tidal</p>
+          </div>
+
+          <!-- mini animated "map" — dotted routes + pulsing story markers -->
+          <svg class="wire-map" viewBox="0 0 300 100" aria-hidden="true">
+            <g fill="none" stroke="var(--hairline-strong)" stroke-width="1">
+              <path d="M6 62 Q45 34 82 54 T160 48 T230 58 T294 42" />
+              <path d="M6 80 Q50 90 92 78 T188 84 T294 72" />
+            </g>
+            <circle cx="58" cy="50" r="3" fill="#f5a623">
+              <animate attributeName="opacity" values="0.35;1;0.35" dur="2.6s" repeatCount="indefinite" />
+            </circle>
+            <circle cx="132" cy="44" r="3" fill="#35c2c1">
+              <animate attributeName="opacity" values="0.35;1;0.35" dur="2.6s" begin="0.5s" repeatCount="indefinite" />
+            </circle>
+            <circle cx="205" cy="56" r="3" fill="#f5a623">
+              <animate attributeName="opacity" values="0.35;1;0.35" dur="2.6s" begin="1s" repeatCount="indefinite" />
+            </circle>
+            <circle cx="252" cy="40" r="3" fill="#35c2c1">
+              <animate attributeName="opacity" values="0.35;1;0.35" dur="2.6s" begin="1.5s" repeatCount="indefinite" />
+            </circle>
+            <circle cx="90" cy="74" r="2.2" fill="#35c2c1" opacity="0.7">
+              <animate attributeName="opacity" values="0.25;0.8;0.25" dur="3s" begin="0.3s" repeatCount="indefinite" />
+            </circle>
+          </svg>
+
+          <!-- skeleton headline rows — suggests live content without
+               reproducing any real, copyrighted headline text -->
+          <div class="wire-headlines">
+            <div class="wire-row"><span class="wire-tag wire-tag-wind">WIND</span><span class="wire-skel"></span></div>
+            <div class="wire-row"><span class="wire-tag wire-tag-solar">SOLAR</span><span class="wire-skel short"></span></div>
+            <div class="wire-row"><span class="wire-tag wire-tag-hydro">HYDRO</span><span class="wire-skel"></span></div>
+          </div>
+        </div>
+      </div>
+    </a>
+
+    <div class="wire-copy">
+      <div class="eyebrow">NEWS</div>
+      <h2>The Renewable Wire</h2>
+      <div class="about-bio">
+        <p>
+          A self-updating newsroom for renewable energy — mapping wind, solar,
+          hydro, storage, and tidal headlines across Canada and the world, with
+          separate Global and Canada editions refreshed automatically every day.
+        </p>
+      </div>
+      <div class="skill-cloud">
+        <span class="skill-chip">Daily GitHub Actions pipeline</span>
+        <span class="skill-chip">Global + Canada editions</span>
+        <span class="skill-chip">Interactive D3 map</span>
+      </div>
+      <div class="hero-cta" style="margin-top:2rem;">
+        <a href="https://tmugomba.github.io/renewable-wire/" class="btn" target="_blank" rel="noopener" id="wireVisitLink">Read the Wire →</a>
+        <a href="https://github.com/tmugomba/renewable-wire" class="btn ghost" target="_blank" rel="noopener">View on GitHub</a>
+      </div>
+    </div>
+
   </div>
 </section>
 
