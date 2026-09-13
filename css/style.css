@@ -290,6 +290,108 @@ nav.main-nav a:hover { color: var(--amber); }
 .slide-nav-prev { left: 1rem; }
 .slide-nav-next { right: 1rem; }
 
+/* ---------- Renewable Wire snapshot section ----------
+   Self-contained CSS/SVG mockup of the actual live site — a fake
+   browser chrome bar, a mini masthead, an animated dotted "map" with
+   pulsing story markers, and skeleton headline rows. Deliberately NOT
+   a screenshot or iframe: stays crisp at any size, costs nothing to
+   load, and needs zero upkeep as the real site's content changes. */
+.wire-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 3rem;
+  align-items: center;
+}
+@media (min-width: 900px) {
+  .wire-grid { grid-template-columns: 1.15fr 1fr; }
+}
+
+.wire-visual {
+  display: block;
+  color: inherit;
+  border-radius: 8px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.wire-visual:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 20px 48px -16px rgba(245, 166, 35, 0.28);
+}
+.wire-visual:hover .wire-frame { border-color: var(--amber); }
+
+.wire-frame {
+  border: 1px solid var(--hairline-strong);
+  background: var(--graphite);
+  border-radius: 8px;
+  overflow: hidden;
+  transition: border-color 0.3s ease;
+}
+
+/* fake browser chrome bar — just for framing/context, not functional */
+.wire-chrome {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.7rem 0.9rem;
+  background: var(--navy-deep);
+  border-bottom: 1px solid var(--hairline);
+}
+.wire-chrome-dot {
+  width: 8px; height: 8px; border-radius: 50%;
+  background: var(--hairline-strong);
+}
+.wire-chrome-url {
+  margin-left: 0.6rem;
+  font-size: 0.68rem;
+  color: var(--ink-dim);
+}
+
+.wire-inner { padding: 1.6rem 1.7rem 1.8rem; }
+
+.wire-topline {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 0.68rem;
+  letter-spacing: 0.06em;
+  margin-bottom: 1.1rem;
+}
+.wire-live { display: flex; align-items: center; gap: 0.4rem; color: var(--cyan); }
+.wire-live i {
+  display: inline-block;
+  width: 6px; height: 6px; border-radius: 50%;
+  background: var(--cyan);
+}
+.wire-editions { display: flex; gap: 0.5rem; color: var(--ink-dim); }
+.wire-editions .on { color: var(--navy-deep); background: var(--amber); padding: 0.15rem 0.45rem; border-radius: 3px; }
+
+.wire-masthead-block {
+  border-top: 2px solid var(--hairline-strong);
+  border-bottom: 1px solid var(--hairline-strong);
+  padding: 0.9rem 0;
+  margin-bottom: 1.2rem;
+}
+.wire-masthead {
+  font-size: 1.7rem;
+  letter-spacing: -0.01em;
+  margin-bottom: 0.2em;
+}
+.wire-sub { font-size: 0.7rem; color: var(--ink-dim); margin: 0; }
+
+.wire-map { display: block; width: 100%; height: auto; margin-bottom: 1.3rem; }
+
+.wire-headlines { display: flex; flex-direction: column; gap: 0.6rem; }
+.wire-row { display: flex; align-items: center; gap: 0.6rem; }
+.wire-tag {
+  font-family: var(--font-mono); font-size: 0.6rem; text-transform: uppercase;
+  letter-spacing: 0.06em; padding: 0.2rem 0.45rem; border-radius: 3px; flex-shrink: 0;
+}
+.wire-tag-wind, .wire-tag-hydro { background: rgba(53,194,193,0.15); color: var(--cyan); }
+.wire-tag-solar { background: rgba(245,166,35,0.15); color: var(--amber); }
+.wire-skel { flex: 1; height: 8px; border-radius: 4px; background: var(--hairline-strong); }
+.wire-skel.short { max-width: 60%; }
+
+.wire-copy .about-bio { margin-bottom: 0; }
+
 /* ---------- Projects ---------- */
 .filter-row { display: flex; flex-wrap: wrap; gap: 0.7rem; margin-bottom: 2.5rem; }
 .filter-btn {
@@ -299,7 +401,7 @@ nav.main-nav a:hover { color: var(--amber); }
   transition: all 0.2s ease;
 }
 .filter-btn:hover { border-color: var(--amber); color: var(--amber); }
-.filter-btn.active { background: var(--amber); border-color: var(--amber); color: var(--navy-deep); }
+.filter-btn.active { background: var(--amber); border-color: var(--amber); color: var(--navy-deep); box-shadow: 0 4px 16px -4px rgba(245, 166, 35, 0.5); }
 
 .project-grid {
   display: grid;
@@ -312,11 +414,11 @@ nav.main-nav a:hover { color: var(--amber); }
   background: var(--graphite);
   border-radius: 6px;
   overflow: hidden;
-  transition: transform 0.25s ease, border-color 0.25s ease;
+  transition: transform 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease;
   display: flex;
   flex-direction: column;
 }
-.project-card:hover { transform: translateY(-4px); border-color: var(--amber); }
+.project-card:hover { transform: translateY(-4px); border-color: var(--amber); box-shadow: 0 16px 36px -16px rgba(245, 166, 35, 0.3); }
 
 .project-thumb {
   height: 170px;
