@@ -306,3 +306,17 @@ function renderBlueprints(pending) {
     }
   });
 })();
+
+/* ---------- Renewable Wire section tracking ----------
+   Fires a GA4 event whenever a visitor clicks through to the live
+   Renewable Wire site or its GitHub repo from the new hero snapshot. */
+(function renewableWireTracking() {
+  const wireSection = document.getElementById('wire');
+  if (!wireSection) return;
+
+  wireSection.querySelectorAll('a[target="_blank"]').forEach((link) => {
+    link.addEventListener('click', () => {
+      trackEvent('renewable_wire_click', { link_href: link.href });
+    });
+  });
+})();
