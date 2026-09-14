@@ -307,10 +307,15 @@ function renderBlueprints(pending) {
   });
 })();
 
-/* ---------- Renewable Wire section tracking ----------
+/* ---------- Renewable Wire section: video + tracking ----------
    Fires a GA4 event whenever a visitor clicks through to the live
-   Renewable Wire site or its GitHub repo from the new hero snapshot. */
-(function renewableWireTracking() {
+   Renewable Wire site or its GitHub repo from the demo clip/buttons.
+   Also handles the demo video itself: skips autoplay for anyone who
+   prefers reduced motion (poster frame stays static, tap to play
+   still works via native controls if they choose), and pauses
+   playback once the clip scrolls out of view so it's not burning
+   cycles/battery in the background. */
+(function renewableWireSection() {
   const wireSection = document.getElementById('wire');
   if (!wireSection) return;
 
@@ -319,4 +324,28 @@ function renderBlueprints(pending) {
       trackEvent('renewable_wire_click', { link_href: link.href });
     });
   });
+
+  const video = wireSection.querySelector('.wire-video');
+  if (!video) return;
+
+  const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if (prefersReducedMotion) {
+    video.removeAttribute('autoplay');
+    video.pause();
+    video.controls = true; // let interested visitors opt in manually
+    return;
+  }
+
+  if ('IntersectionObserver' in window) {
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          video.play().catch(() => {}); // ignore autoplay-blocked rejections
+        } else {
+          video.pause();
+        }
+      });
+    }, { threshold: 0.25 });
+    observer.observe(video);
+  }
 })();
