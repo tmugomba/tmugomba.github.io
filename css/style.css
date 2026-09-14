@@ -29,7 +29,14 @@
 }
 
 * { box-sizing: border-box; }
-html { scroll-behavior: smooth; }
+html {
+  scroll-behavior: smooth;
+  /* Bumps the base from the browser default (16px) up to ~18px.
+     Everything sized in rem (type, paddings, gaps, chips, etc.)
+     scales up from this automatically, so the whole site reads
+     bigger without every rule needing to be touched individually. */
+  font-size: 112.5%;
+}
 
 @media (prefers-reduced-motion: reduce) {
   * { animation-duration: 0.01ms !important; animation-iteration-count: 1 !important; transition-duration: 0.01ms !important; scroll-behavior: auto !important; }
@@ -70,7 +77,7 @@ img { max-width: 100%; display: block; }
   margin-bottom: 1em;
 }
 
-.wrap { max-width: 1240px; margin: 0 auto; padding: 0 6vw; }
+.wrap { max-width: 1320px; margin: 0 auto; padding: 0 6vw; }
 .visually-hidden { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); }
 a:focus-visible, button:focus-visible { outline: 2px solid var(--cyan); outline-offset: 3px; }
 
@@ -161,10 +168,10 @@ nav.main-nav a:hover { color: var(--amber); }
   z-index: 2;
 }
 
-.hero-content { position: relative; z-index: 2; padding: 8rem 6vw 4rem; max-width: 1240px; margin: 0 auto; }
+.hero-content { position: relative; z-index: 2; padding: 6.5rem 6vw 4rem; max-width: 1320px; margin: 0 auto; }
 
 .hero h1 {
-  font-size: clamp(2.8rem, 7.5vw, 5.8rem);
+  font-size: clamp(3.2rem, 8vw, 6.4rem);
   max-width: 14ch;
   letter-spacing: -0.02em;
 }
@@ -173,12 +180,12 @@ nav.main-nav a:hover { color: var(--amber); }
 .hero-role {
   font-family: var(--font-mono);
   color: var(--cyan);
-  font-size: 1.05rem;
+  font-size: 1.1rem;
   margin-bottom: 1.2rem;
 }
 
 .hero-sub {
-  font-size: 1.2rem;
+  font-size: 1.3rem;
   color: var(--ink-light);
   max-width: 56ch;
 }
@@ -211,9 +218,9 @@ nav.main-nav a:hover { color: var(--amber); }
 @keyframes scrolldraw { 0% { transform: scaleY(0); transform-origin: top; } 50% { transform: scaleY(1); transform-origin: top; } 50.01% { transform-origin: bottom; } 100% { transform: scaleY(0); transform-origin: bottom; } }
 
 /* ---------- Section shell ---------- */
-.section { padding: 10rem 0; border-top: 1px solid var(--hairline); }
+.section { padding: 7.5rem 0; border-top: 1px solid var(--hairline); }
 .section-head { max-width: 62ch; margin-bottom: 4.5rem; }
-.section h2 { font-size: clamp(2rem, 3.6vw, 3.1rem); letter-spacing: -0.02em; }
+.section h2 { font-size: clamp(2.2rem, 3.8vw, 3.4rem); letter-spacing: -0.02em; }
 
 /* ---------- About ---------- */
 .about-grid { display: grid; grid-template-columns: 1fr; gap: 3rem; }
@@ -291,11 +298,9 @@ nav.main-nav a:hover { color: var(--amber); }
 .slide-nav-next { right: 1rem; }
 
 /* ---------- Renewable Wire snapshot section ----------
-   Self-contained CSS/SVG mockup of the actual live site — a fake
-   browser chrome bar, a mini masthead, an animated dotted "map" with
-   pulsing story markers, and skeleton headline rows. Deliberately NOT
-   a screenshot or iframe: stays crisp at any size, costs nothing to
-   load, and needs zero upkeep as the real site's content changes. */
+   A real screen recording of the live site, framed in a fake browser
+   chrome bar for context. JS (in script.js) handles autoplay, pauses
+   for prefers-reduced-motion, and pauses when scrolled out of view. */
 .wire-grid {
   display: grid;
   grid-template-columns: 1fr;
@@ -345,50 +350,16 @@ nav.main-nav a:hover { color: var(--amber); }
   color: var(--ink-dim);
 }
 
-.wire-inner { padding: 1.6rem 1.7rem 1.8rem; }
-
-.wire-topline {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  font-size: 0.68rem;
-  letter-spacing: 0.06em;
-  margin-bottom: 1.1rem;
+.wire-video {
+  display: block;
+  width: 100%;
+  height: auto;
+  background: var(--navy-deep);
+  /* Locks the box to the recording's real aspect ratio so the layout
+     doesn't jump once the video loads in over the poster image. */
+  aspect-ratio: 1084 / 868;
+  object-fit: cover;
 }
-.wire-live { display: flex; align-items: center; gap: 0.4rem; color: var(--cyan); }
-.wire-live i {
-  display: inline-block;
-  width: 6px; height: 6px; border-radius: 50%;
-  background: var(--cyan);
-}
-.wire-editions { display: flex; gap: 0.5rem; color: var(--ink-dim); }
-.wire-editions .on { color: var(--navy-deep); background: var(--amber); padding: 0.15rem 0.45rem; border-radius: 3px; }
-
-.wire-masthead-block {
-  border-top: 2px solid var(--hairline-strong);
-  border-bottom: 1px solid var(--hairline-strong);
-  padding: 0.9rem 0;
-  margin-bottom: 1.2rem;
-}
-.wire-masthead {
-  font-size: 1.7rem;
-  letter-spacing: -0.01em;
-  margin-bottom: 0.2em;
-}
-.wire-sub { font-size: 0.7rem; color: var(--ink-dim); margin: 0; }
-
-.wire-map { display: block; width: 100%; height: auto; margin-bottom: 1.3rem; }
-
-.wire-headlines { display: flex; flex-direction: column; gap: 0.6rem; }
-.wire-row { display: flex; align-items: center; gap: 0.6rem; }
-.wire-tag {
-  font-family: var(--font-mono); font-size: 0.6rem; text-transform: uppercase;
-  letter-spacing: 0.06em; padding: 0.2rem 0.45rem; border-radius: 3px; flex-shrink: 0;
-}
-.wire-tag-wind, .wire-tag-hydro { background: rgba(53,194,193,0.15); color: var(--cyan); }
-.wire-tag-solar { background: rgba(245,166,35,0.15); color: var(--amber); }
-.wire-skel { flex: 1; height: 8px; border-radius: 4px; background: var(--hairline-strong); }
-.wire-skel.short { max-width: 60%; }
 
 .wire-copy .about-bio { margin-bottom: 0; }
 
